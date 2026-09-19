@@ -10,8 +10,10 @@
     anydesk
     autenticacao-gov-pt-bin
     btop
+    curl
     easyeffects
     fastfetch
+    fuse2
     gnome-calculator
     gnome-disk-utility
     google-chrome
@@ -42,7 +44,14 @@
     trash-cli
     vesktop
     vscode
+    wget
+    zstd
   ];
+
+  programs.appimage = {
+    enable = true;
+    binfmt = true;
+  };
 
   # Install git
   programs.git = {
