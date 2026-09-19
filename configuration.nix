@@ -58,46 +58,6 @@
     packages = with pkgs; [ ];
   };
 
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
-
-  # List packages installed in system profile.
-  # You can use https://search.nixos.org/ to find more packages (and options).
-  environment.systemPackages = with pkgs; [
-    anydesk
-    autenticacao-gov-pt-bin
-    btop
-    easyeffects
-    fastfetch
-    gnome-calculator
-    gnome-disk-utility
-    google-chrome
-    haruna
-    heroic
-    intel-undervolt
-    kdePackages.gwenview
-    kdePackages.kate
-    kdePackages.okular
-    keepassxc
-    localsend
-    megasync
-    mission-center
-    mongodb-compass
-    nbfc-linux
-    nodejs
-    npm-check-updates
-    onlyoffice-desktopeditors
-    opencode
-    pear-desktop
-    postman
-    protonplus
-    samrewritten
-    stress
-    trash-cli
-    vesktop
-    vscode
-  ];
-
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
