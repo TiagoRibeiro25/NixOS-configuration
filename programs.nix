@@ -23,6 +23,7 @@
     kdePackages.okular
     keepassxc
     localsend
+    mangohud
     megasync
     mission-center
     mongodb-compass
