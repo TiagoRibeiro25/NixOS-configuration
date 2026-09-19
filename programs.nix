@@ -35,6 +35,7 @@
     pear-desktop
     postman
     protonplus
+    python3
     samrewritten
     stress
     trash-cli
