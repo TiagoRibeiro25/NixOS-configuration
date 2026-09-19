@@ -1,0 +1,4 @@
+com.stremio.Stremio
+org.vinegarhq.Sober
+org.desktop_plus.desktop-plus
+io.beekeeperstudio.Studio
