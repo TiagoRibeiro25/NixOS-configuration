@@ -35,6 +35,7 @@
     pear-desktop
     postman
     protonplus
+    protontricks
     python3
     samrewritten
     stress
@@ -42,6 +43,21 @@
     vesktop
     vscode
   ];
+
+  # Install git
+  programs.git = {
+    enable = true;
+  };
+
+  # Install fish shell
+  programs.fish.enable = true;
+  programs.fish.shellAliases = {
+    ll = "ls -la";
+    gs = "git status";
+    rebuild = "sudo nixos-rebuild switch --flake .#my-nixos";
+    rm = "trash";
+    ff = "fastfetch";
+  };
 
   # Install firefox.
   programs.firefox.enable = true;
@@ -52,6 +68,7 @@
 
     package = pkgs.steam.override {
       extraEnv = {
+        MANGOHUD = "1";
         LD_AUDIT = "${
           sls-steam.packages.${pkgs.stdenv.hostPlatform.system}.sls-steam
         }/library-inject.so:${

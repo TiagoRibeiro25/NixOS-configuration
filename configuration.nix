@@ -13,6 +13,8 @@
       ./services.nix
     ];
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -54,6 +56,7 @@
   users.users."tiago" = {
     isNormalUser = true;
     description = "Tiago";
+    shell = pkgs.fish;
     extraGroups = [ "networkmanager" "wheel" "docker" ];
     packages = with pkgs; [ ];
   };
