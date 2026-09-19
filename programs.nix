@@ -54,7 +54,8 @@
   programs.fish.shellAliases = {
     ll = "ls -la";
     gs = "git status";
-    rebuild = "sudo nixos-rebuild switch --flake .#my-nixos";
+    rebuild = "sudo nixos-rebuild switch --flake /etc/nixos#my-nixos";
+    update-db = "cd /etc/nixos && sudo nix flake update";
     rm = "trash";
     ff = "fastfetch";
   };
@@ -78,22 +79,22 @@
     };
   };
 
-  # programs.obs-studio = {
-  #   enable = true;
+  programs.obs-studio = {
+    enable = true;
 
-  #   # optional Nvidia hardware acceleration
-  #   package = (
-  #     pkgs.obs-studio.override {
-  #       cudaSupport = true;
-  #     }
-  #   );
+    # optional Nvidia hardware acceleration
+    package = (
+      pkgs.obs-studio.override {
+        cudaSupport = true;
+      }
+    );
 
-  #   plugins = with pkgs.obs-studio-plugins; [
-  #     wlrobs
-  #     obs-backgroundremoval
-  #     obs-pipewire-audio-capture
-  #     obs-gstreamer
-  #     obs-vkcapture
-  #   ];
-  # };
+    plugins = with pkgs.obs-studio-plugins; [
+      wlrobs
+      obs-backgroundremoval
+      obs-pipewire-audio-capture
+      obs-gstreamer
+      obs-vkcapture
+    ];
+  };
 }
