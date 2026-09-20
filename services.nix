@@ -90,7 +90,13 @@
     '';
   };
 
-  # openrgb
+  # Enable the modern nftables backend required by firewalld
+  networking.nftables.enable = true;
+
+  # Firewalld
+  services.firewalld.enable = true;
+
+  # Openrgb
   services.hardware.openrgb = {
     enable = true;
     # motherboard = "amd";   # use this for AMD

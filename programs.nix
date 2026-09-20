@@ -13,6 +13,7 @@
     curl
     easyeffects
     fastfetch
+    firewalld-gui
     fuse2
     gnome-calculator
     gnome-disk-utility
