@@ -97,6 +97,8 @@
 
   environment.variables = {
     XLOCALEDIR = "${pkgs.libX11}/share/X11/locale";
+    __GL_SHADER_DISK_CACHE = "1";
+    __GL_SHADER_DISK_CACHE_SIZE = "17179869184";
   };
 
   # Bluetooth
