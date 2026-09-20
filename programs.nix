@@ -42,6 +42,7 @@
     protontricks
     python3
     samrewritten
+    starship
     stress
     trash-cli
     vesktop
