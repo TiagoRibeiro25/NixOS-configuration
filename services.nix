@@ -113,6 +113,20 @@
   # Docker
   virtualisation.docker.enable = true;
 
+  # NBFC - manually controlled fan management
+  environment.etc."nbfc/nbfc.json".text = builtins.toJSON {
+    SelectedConfigId = "HP Compaq 15-s103tx";
+  };
+
+  environment.systemPackages = [
+    (pkgs.nbfc-linux.overrideAttrs (oldAttrs: {
+      postInstall = (oldAttrs.postInstall or "") + ''
+        rm -f $out/etc/nbfc/nbfc.json
+        ln -s /etc/nbfc/nbfc.json $out/etc/nbfc/nbfc.json
+      '';
+    }))
+  ];
+
   # Disable dualsense touchpad as mouse
   services.udev.extraRules = ''
     ACTION=="add|change", KERNEL=="event[0-9]*", ATTRS{name}=="*Wireless Controller Touchpad", ENV{LIBINPUT_IGNORE_DEVICE}="1"
