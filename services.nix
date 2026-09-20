@@ -15,8 +15,12 @@
   services.libinput.enable = true;
 
   # Enable the KDE Plasma Desktop Environment.
-  services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
+  #services.displayManager.sddm.enable = true;
+  services.displayManager = {
+    sddm.enable = false;
+    plasma-login-manager.enable = true;
+  };
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
