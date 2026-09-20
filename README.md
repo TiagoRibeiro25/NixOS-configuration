@@ -22,5 +22,5 @@ All Flatpak apps are listed in `flatpaks.txt`.
 To rebuild the system configuration:
 
 ```bash
-sudo nixos-rebuild switch --flake .
+sudo nixos-rebuild switch --flake /etc/nixos#my-nixos
 ```
