@@ -49,6 +49,19 @@
     LC_TIME = "pt_PT.UTF-8";
   };
 
+  i18n.inputMethod = {
+    enable = true;
+    type = "fcitx5";
+
+    fcitx5 = {
+      waylandFrontend = true;
+
+      addons = with pkgs; [
+        fcitx5-gtk
+      ];
+    };
+  };
+
   # Configure console keymap
   console.keyMap = "us-acentos";
 
@@ -66,6 +79,14 @@
     dates = "weekly";
     options = "--delete-older-than 7d";
   };
+
+  environment.variables = {
+    XLOCALEDIR = "${pkgs.libX11}/share/X11/locale";
+  };
+
+  # Bluetooth
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
