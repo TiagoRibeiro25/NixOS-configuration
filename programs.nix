@@ -9,11 +9,13 @@
   environment.systemPackages = with pkgs; [
     anydesk
     autenticacao-gov-pt-bin
+    bat
     btop
     curl
     easyeffects
     fastfetch
     firewalld-gui
+    ffmpeg
     fuse2
     gnome-calculator
     gnome-disk-utility
@@ -35,7 +37,7 @@
     npm-check-updates
     onlyoffice-desktopeditors
     opencode
-    openrgb
+    openrgb-with-all-plugins
     pear-desktop
     postman
     protonplus
@@ -74,13 +76,17 @@
     ll = "ls -la";
     gs = "git status";
     rebuild = "sudo nixos-rebuild switch --flake /etc/nixos#my-nixos";
-    update-db = "cd /etc/nixos && sudo nix flake update";
+    #update-db = "cd /etc/nixos && sudo nix flake update";
+    update-db = "sudo nix flake update --flake /etc/nixos";
     rm = "trash";
     ff = "fastfetch";
   };
 
   # Install firefox.
-  programs.firefox.enable = true;
+  programs.firefox = {
+    enable = true;
+    wrapperConfig.pipewireSupport = true;
+  };
 
   # Install steam
   programs.steam = {
@@ -89,6 +95,7 @@
     package = pkgs.steam.override {
       extraEnv = {
         MANGOHUD = "1";
+        OBS_VKCAPTURE = "1";
         LD_AUDIT = "${
           sls-steam.packages.${pkgs.stdenv.hostPlatform.system}.sls-steam
         }/library-inject.so:${
