@@ -115,4 +115,15 @@
       obs-vkcapture
     ];
   };
+
+  # Remove discover
+  environment.plasma6.excludePackages = with pkgs; [
+    kdePackages.discover
+  ];
+
+  # Remove firewalld applet
+  environment.etc."xdg/autostart/firewall-applet.desktop".text = ''
+    [Desktop Entry]
+    Hidden=true
+  '';
 }
