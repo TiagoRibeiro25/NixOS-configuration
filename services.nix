@@ -90,6 +90,13 @@
     '';
   };
 
+  # openrgb
+  services.hardware.openrgb = {
+    enable = true;
+    # motherboard = "amd";   # use this for AMD
+    motherboard = "intel"; # use this for Intel
+  };
+
   # LACT
   services.lact.enable = true;
 

@@ -34,6 +34,7 @@
     npm-check-updates
     onlyoffice-desktopeditors
     opencode
+    openrgb
     pear-desktop
     postman
     protonplus
@@ -45,12 +46,19 @@
     vesktop
     vscode
     wget
-    zstd
   ];
 
+  # Run AppImages
   programs.appimage = {
     enable = true;
     binfmt = true;
+  };
+
+  programs.nix-ld = {
+    enable = true;
+    libraries = with pkgs; [
+      zstd
+    ];
   };
 
   # Install git
