@@ -24,7 +24,6 @@
     google-chrome
     haruna
     heroic
-    intel-undervolt
     kdePackages.gwenview
     kdePackages.kate
     kdePackages.okular
@@ -45,7 +44,6 @@
     protonplus
     protontricks
     python3
-    samrewritten
     starship
     stress
     trash-cli
