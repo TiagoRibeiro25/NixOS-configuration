@@ -2,8 +2,11 @@
 # your system. Help is available in the configuration.nix(5) man page, on
 # https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
 
-{ config, pkgs, ... }:
+{ config, pkgs, spicetify-nix, ... }:
 
+let
+  spicePkgs = spicetify-nix.legacyPackages.${pkgs.stdenv.hostPlatform.system};
+in
 {
   imports =
     [
@@ -11,7 +14,17 @@
       ./nvidia-laptop.nix
       ./programs.nix
       ./services.nix
+
+      spicetify-nix.nixosModules.default
     ];
+
+  programs.spicetify = {
+    enable = true;
+
+    enabledExtensions = with spicePkgs.extensions; [
+      adblock
+    ];
+  };
 
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
@@ -136,8 +149,7 @@
   # Or disable the firewall altogether.
   networking.firewall.enable = false;
 
-  # Copy the NixOS configuration file and link it from the resulting system
-  # /run/current-system/configuration.nix.
+  # Copy the NixOS configuration file and link it from the resulting system.
   # system.copySystemConfiguration = true;
 
   # This value does NOT affect the Nixpkgs version your packages and OS

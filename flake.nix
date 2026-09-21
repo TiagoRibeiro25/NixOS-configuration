@@ -11,16 +11,18 @@
       url = "github:AceSLS/SLSsteam";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    spicetify-nix.url = "github:Gerg-L/spicetify-nix";
   };
 
-  outputs = { self, nixpkgs, nix-cachyos-kernel, sls-steam, ... }:
+  outputs = { self, nixpkgs, nix-cachyos-kernel, sls-steam, spicetify-nix, ... }:
     {
       nixosConfigurations.my-nixos =
         nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
 
           specialArgs = {
-            inherit sls-steam;
+            inherit sls-steam spicetify-nix;
           };
 
           modules = [
