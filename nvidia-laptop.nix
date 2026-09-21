@@ -22,7 +22,7 @@
    modesetting.enable = true;
    open = true;
    nvidiaSettings = true;
-   package = config.boot.kernelPackages.nvidiaPackages.stable;
+   package = config.boot.kernelPackages.nvidiaPackages.latest;
 
    prime = {
      offload = {
@@ -30,7 +30,7 @@
        enableOffloadCmd = true;
        offloadCmdMainProgram = "prime-run";
      };
-     #sync.enable = true; # The stable solution
+     #sync.enable = true;
      intelBusId = "PCI:0:2:0";
      nvidiaBusId = "PCI:1:0:0";
    };

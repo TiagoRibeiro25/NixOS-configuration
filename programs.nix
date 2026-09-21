@@ -1,56 +1,65 @@
-{ config, pkgs, sls-steam, ... }:
+{ config, pkgs, nix-tools-steam, ... }:
 
+let
+  steam-tools =
+    nix-tools-steam.packages.${pkgs.stdenv.hostPlatform.system};
+in
 {
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile.
-  # You can use https://search.nixos.org/ to find more packages (and options).
-  environment.systemPackages = with pkgs; [
-    anydesk
-    appimage-run
-    autenticacao-gov-pt-bin
-    bat
-    btop
-    curl
-    easyeffects
-    fastfetch
-    firewalld-gui
-    ffmpeg
-    fuse2
-    gearlever
-    gnome-calculator
-    gnome-disk-utility
-    google-chrome
-    haruna
-    heroic
-    kdePackages.gwenview
-    kdePackages.kate
-    kdePackages.okular
-    keepassxc
-    localsend
-    mangohud
-    megasync
-    mission-center
-    mongodb-compass
-    nbfc-linux
-    nodejs
-    npm-check-updates
-    onlyoffice-desktopeditors
-    opencode
-    openrgb-with-all-plugins
-    pear-desktop
-    postman
-    protonplus
-    protontricks
-    python3
-    starship
-    stress
-    trash-cli
-    vesktop
-    vscode
-    wget
-  ];
+  environment.systemPackages =
+    (with pkgs; [
+      anydesk
+      appimage-run
+      autenticacao-gov-pt-bin
+      bat
+      btop
+      curl
+      easyeffects
+      fastfetch
+      firewalld-gui
+      ffmpeg
+      fuse2
+      gearlever
+      gnome-calculator
+      gnome-disk-utility
+      google-chrome
+      haruna
+      heroic
+      kdePackages.gwenview
+      kdePackages.kate
+      kdePackages.okular
+      keepassxc
+      localsend
+      mangohud
+      megasync
+      mission-center
+      mongodb-compass
+      nbfc-linux
+      nodejs
+      npm-check-updates
+      onlyoffice-desktopeditors
+      opencode
+      openrgb-with-all-plugins
+      pear-desktop
+      postman
+      protonplus
+      protontricks
+      python3
+      starship
+      stress
+      trash-cli
+      vesktop
+      vscode
+      wget
+    ])
+    ++ [
+      # nix-tools-steam
+      steam-tools.accela
+      steam-tools.samrewritten
+    ];
 
   # Run AppImages
   programs.appimage = {
@@ -76,31 +85,25 @@
     ll = "ls -la";
     gs = "git status";
     rebuild = "sudo nixos-rebuild switch --flake /etc/nixos#my-nixos";
-    #update-db = "cd /etc/nixos && sudo nix flake update";
     update-db = "sudo nix flake update --flake /etc/nixos";
     rm = "trash";
     ff = "fastfetch";
   };
 
-  # Install firefox.
+  # Install firefox
   programs.firefox = {
     enable = true;
     wrapperConfig.pipewireSupport = true;
   };
 
-  # Install steam
+  # Install Steam + SLSsteam
   programs.steam = {
     enable = true;
-
     package = pkgs.steam.override {
       extraEnv = {
         MANGOHUD = "1";
         OBS_VKCAPTURE = "1";
-        LD_AUDIT = "${
-          sls-steam.packages.${pkgs.stdenv.hostPlatform.system}.sls-steam
-        }/library-inject.so:${
-          sls-steam.packages.${pkgs.stdenv.hostPlatform.system}.sls-steam
-        }/SLSsteam.so";
+        LD_AUDIT = steam-tools.sls-steam.passthru.LD_AUDIT;
       };
     };
   };
@@ -108,12 +111,9 @@
   programs.obs-studio = {
     enable = true;
 
-    # optional Nvidia hardware acceleration
-    package = (
-      pkgs.obs-studio.override {
-        cudaSupport = true;
-      }
-    );
+    package = pkgs.obs-studio.override {
+      cudaSupport = true;
+    };
 
     plugins = with pkgs.obs-studio-plugins; [
       wlrobs
@@ -124,7 +124,7 @@
     ];
   };
 
-  # Remove discover
+  # Remove Discover
   environment.plasma6.excludePackages = with pkgs; [
     kdePackages.discover
   ];
