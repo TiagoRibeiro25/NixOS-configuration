@@ -8,6 +8,7 @@
   # You can use https://search.nixos.org/ to find more packages (and options).
   environment.systemPackages = with pkgs; [
     anydesk
+    appimage-run
     autenticacao-gov-pt-bin
     bat
     btop
@@ -17,6 +18,7 @@
     firewalld-gui
     ffmpeg
     fuse2
+    gearlever
     gnome-calculator
     gnome-disk-utility
     google-chrome
