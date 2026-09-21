@@ -108,16 +108,16 @@
         Disable_BDPROCHOT: False
 
         [UNDERVOLT.BATTERY]
-        CORE: -100
+        CORE: -75
         GPU: -50
-        CACHE: -100
+        CACHE: -75
         UNCORE: 0
         ANALOGIO: 0
 
         [UNDERVOLT.AC]
-        CORE: -115
-        GPU: -75
-        CACHE: -115
+        CORE: -110
+        GPU: -50
+        CACHE: -110
         UNCORE: 0
         ANALOGIO: 0
       '';
