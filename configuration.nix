@@ -46,6 +46,7 @@ in
 
   # Use CachyOS kernel
   boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
+  boot.kernelModules = [ "ntsync" ];
 
   boot.kernel.sysctl = {
     "kernel.split_lock_mitigate" = 0;
