@@ -3,3 +3,4 @@ org.vinegarhq.Sober
 org.desktop_plus.desktop-plus
 io.beekeeperstudio.Studio
 com.github.tchx84.Flatseal
+org.pvermeer.WebAppHub
