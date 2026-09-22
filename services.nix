@@ -116,7 +116,7 @@
 
         [UNDERVOLT.AC]
         CORE: -110
-        GPU: -50
+        GPU: -75
         CACHE: -110
         UNCORE: 0
         ANALOGIO: 0
@@ -137,8 +137,8 @@
     lact.enable = true;
 
     # CPU frequency / power management
-    power-profiles-daemon.enable = false;
-    auto-cpufreq.enable = true;
+    power-profiles-daemon.enable = true;
+    #auto-cpufreq.enable = false;
 
     # Android phone mounting
     gvfs.enable = true;
