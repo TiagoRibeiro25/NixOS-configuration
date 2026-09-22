@@ -59,6 +59,9 @@ in
   # Enable networking
   networking.networkmanager = {
     enable = true;
+
+    # Ignore DNS servers supplied by DHCP
+    dns = "none";
   };
 
   networking.nameservers = [
