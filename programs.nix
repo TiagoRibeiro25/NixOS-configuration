@@ -11,11 +11,14 @@ in
   # List packages installed in system profile.
   environment.systemPackages =
     (with pkgs; [
+      _7zz
       anydesk
       appimage-run
+      arj
       autenticacao-gov-pt-bin
       bat
       btop
+      cpio
       curl
       easyeffects
       fastfetch
@@ -33,6 +36,8 @@ in
       kdePackages.okular
       keepassxc
       localsend
+      lrzip
+      lzop
       mangohud
       megasync
       mission-center
@@ -50,10 +55,14 @@ in
       starship
       stress
       trash-cli
+      unar
+      unrar
+      unzip
       vesktop
       vscode
       vulkan-tools
       wget
+      zstd
     ])
     ++ [
       # nix-tools-steam
