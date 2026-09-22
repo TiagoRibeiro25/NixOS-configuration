@@ -163,12 +163,14 @@
   # GUI printer configuration
   programs.system-config-printer.enable = true;
 
-  # Docker
-  virtualisation.docker = {
-    enable = true;
-    autoPrune.enable = true;
-    autoPrune.dates = "weekly";
-    enableOnBoot = false;
+  # Virtualisation
+  virtualisation = {
+    docker = {
+      enable = true;
+      autoPrune.enable = true;
+      autoPrune.dates = "weekly";
+      enableOnBoot = false;
+    };
   };
 
   # Flatpak Flathub repository
