@@ -52,6 +52,7 @@ in
       trash-cli
       vesktop
       vscode
+      vulkan-tools
       wget
     ])
     ++ [
