@@ -114,6 +114,7 @@ in
       extraEnv = {
         MANGOHUD = "1";
         OBS_VKCAPTURE = "1";
+        PROTON_USE_NTSYNC="1";
         LD_AUDIT = "${sls-steam.packages.${pkgs.stdenv.hostPlatform.system}.sls-steam}/SLSsteam.so";
 
         # Render on the nvidia gpu
