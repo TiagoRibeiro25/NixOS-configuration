@@ -7,8 +7,15 @@
     nix-cachyos-kernel.url =
       "github:xddxdd/nix-cachyos-kernel/release";
 
+    # Used for accela and samrewritten
     nix-tools-steam = {
       url = "github:HANDZCZ/nix-tools-steam";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    # Official SLSsteam flake
+    sls-steam = {
+      url = "github:AceSLS/SLSsteam";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -20,6 +27,7 @@
     nixpkgs,
     nix-cachyos-kernel,
     nix-tools-steam,
+    sls-steam,
     spicetify-nix,
     ...
   }:
@@ -29,7 +37,7 @@
           system = "x86_64-linux";
 
           specialArgs = {
-            inherit nix-tools-steam spicetify-nix;
+            inherit nix-tools-steam sls-steam spicetify-nix;
           };
 
           modules = [

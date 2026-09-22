@@ -1,4 +1,4 @@
-{ config, pkgs, nix-tools-steam, ... }:
+{ config, pkgs, nix-tools-steam, sls-steam, ... }:
 
 let
   steam-tools =
@@ -37,7 +37,6 @@ in
       megasync
       mission-center
       mongodb-compass
-      nbfc-linux
       nodejs
       npm-check-updates
       onlyoffice-desktopeditors
@@ -58,7 +57,7 @@ in
     ++ [
       # nix-tools-steam
       steam-tools.accela
-      steam-tools.samrewritten
+      # steam-tools.samrewritten
     ];
 
   # Run AppImages
@@ -103,7 +102,7 @@ in
       extraEnv = {
         MANGOHUD = "1";
         OBS_VKCAPTURE = "1";
-        LD_AUDIT = steam-tools.sls-steam.passthru.LD_AUDIT;
+        LD_AUDIT = "${sls-steam.packages.${pkgs.stdenv.hostPlatform.system}.sls-steam}/SLSsteam.so";
       };
     };
   };
