@@ -129,6 +129,7 @@
     # OpenRGB
     hardware.openrgb = {
       enable = true;
+      package = pkgs.openrgb-with-all-plugins;
       # motherboard = "amd";   # use this for AMD
       motherboard = "intel";    # use this for Intel
     };
