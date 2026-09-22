@@ -28,16 +28,9 @@ in
 
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
-
-    substituters = [
-      "https://cache.nixos.org/"
-      "https://attic.xuyh0120.win/lantian"
-    ];
-
-    trusted-public-keys = [
-      "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
-      "lantian:EeAUQ+W+6r7EtwnmYjeVwx5kOGEBpjlBfPlzGlTNvHc="
-    ];
+    http-connections = 128;
+    max-substitution-jobs = 128;
+    max-jobs = "auto";
   };
 
   # Use the systemd-boot EFI boot loader
@@ -45,7 +38,7 @@ in
   boot.loader.efi.canTouchEfiVariables = true;
 
   # Use CachyOS kernel
-  boot.kernelPackages = pkgs.cachyosKernels.linuxPackages-cachyos-latest;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelModules = [ "ntsync" ];
 
   boot.kernel.sysctl = {

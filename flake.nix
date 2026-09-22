@@ -4,9 +4,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    nix-cachyos-kernel.url =
-      "github:xddxdd/nix-cachyos-kernel/release";
-
     # Used for accela and samrewritten
     nix-tools-steam = {
       url = "github:HANDZCZ/nix-tools-steam";
@@ -25,7 +22,6 @@
   outputs = {
     self,
     nixpkgs,
-    nix-cachyos-kernel,
     nix-tools-steam,
     sls-steam,
     spicetify-nix,
@@ -42,12 +38,6 @@
 
           modules = [
             ./configuration.nix
-
-            {
-              nixpkgs.overlays = [
-                nix-cachyos-kernel.overlays.pinned
-              ];
-            }
           ];
         };
     };
