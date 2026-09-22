@@ -21,6 +21,7 @@ in
       cpio
       curl
       easyeffects
+      eza
       fastfetch
       firewalld-gui
       ffmpeg
@@ -91,8 +92,9 @@ in
   # Install fish shell
   programs.fish.enable = true;
   programs.fish.shellAliases = {
-    ll = "ls -la";
-    gs = "git status";
+    ls="eza --icons --group-directories-first";
+    l="eza --icons --group-directories-first";
+    ll="eza -lah --icons --group-directories-first";
     rebuild = "sudo nixos-rebuild switch --flake /etc/nixos#my-nixos";
     update-db = "sudo nix flake update --flake /etc/nixos";
     rm = "trash";
