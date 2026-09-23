@@ -57,6 +57,7 @@ in
       python3
       samba
       starship
+      stremio-linux-shell
       stress
       trash-cli
       unar
