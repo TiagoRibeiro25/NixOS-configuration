@@ -50,6 +50,7 @@ in
       onlyoffice-desktopeditors
       opencode
       openrgb-with-all-plugins
+      parsec-bin
       pear-desktop
       postman
       protonplus
@@ -64,6 +65,7 @@ in
       unrar
       unzip
       vesktop
+      video-trimmer
       vscode
       vulkan-tools
       wget
