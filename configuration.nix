@@ -37,9 +37,10 @@ in
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  # Use CachyOS kernel
+  # Use latest kernel
   boot.kernelPackages = pkgs.linuxPackages_latest;
   boot.kernelModules = [ "ntsync" ];
+  boot.kernelParams = [ "usbcore.autosuspend=-1" ];
 
   boot.kernel.sysctl = {
     "kernel.split_lock_mitigate" = 0;

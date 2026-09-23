@@ -54,7 +54,6 @@
     avahi = {
       enable = true;
       nssmdns4 = true;
-      #openFirewall = true;
     };
 
     # SANE udev packages
@@ -62,13 +61,38 @@
       sane-airscan
     ];
 
-    # PipeWire audio
+    # PipeWire audio / low latency
     pulseaudio.enable = false;
+
     pipewire = {
       enable = true;
-      alsa.enable = true;
-      alsa.support32Bit = true;
+
+      jack.enable = true;
       pulse.enable = true;
+
+      alsa = {
+        enable = true;
+        support32Bit = true;
+      };
+
+      extraConfig.pipewire."92-low-latency" = {
+        "context.properties" = {
+          "default.clock.rate" = 48000;
+          "default.clock.quantum" = 256;
+          "default.clock.min-quantum" = 256;
+          "default.clock.max-quantum" = 256;
+        };
+      };
+
+      wireplumber.extraConfig = {
+        "10-disable-camera" = {
+          "wireplumber.profiles" = {
+            main = {
+              "monitor.libcamera" = "disabled";
+            };
+          };
+        };
+      };
     };
 
     # SMART Card Service
@@ -145,11 +169,11 @@
     gvfs.enable = true;
   };
 
-  # Modern nftables backend
-  networking.nftables.enable = true;
-
   # PipeWire real-time scheduling
   security.rtkit.enable = true;
+
+  # Modern nftables backend
+  networking.nftables.enable = true;
 
   # SANE scanner support
   hardware.sane = {

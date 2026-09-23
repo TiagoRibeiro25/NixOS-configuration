@@ -34,6 +34,8 @@ in
       heroic
       kdePackages.gwenview
       kdePackages.kate
+      kdePackages.kio-extras
+      kdePackages.kio-fuse
       kdePackages.okular
       keepassxc
       localsend
@@ -53,6 +55,7 @@ in
       protonplus
       protontricks
       python3
+      samba
       starship
       stress
       trash-cli
@@ -115,6 +118,7 @@ in
         MANGOHUD = "1";
         OBS_VKCAPTURE = "1";
         PROTON_USE_NTSYNC="1";
+        STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
         LD_AUDIT = "${sls-steam.packages.${pkgs.stdenv.hostPlatform.system}.sls-steam}/SLSsteam.so";
 
         # Render on the nvidia gpu

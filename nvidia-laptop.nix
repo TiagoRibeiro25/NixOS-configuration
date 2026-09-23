@@ -23,20 +23,19 @@
    open = true;
    nvidiaSettings = true;
    package = config.boot.kernelPackages.nvidiaPackages.latest;
+   powerManagement.enable = true;
 
    prime = {
-     offload = {
-       enable = true;
-       enableOffloadCmd = true;
-       offloadCmdMainProgram = "prime-run";
-     };
-     #sync.enable = true;
+     #offload = {
+     #  enable = true;
+     #  enableOffloadCmd = true;
+     #  offloadCmdMainProgram = "prime-run";
+     #};
+     sync.enable = true;
      intelBusId = "PCI:0:2:0";
      nvidiaBusId = "PCI:1:0:0";
    };
   };
-
-  powerManagement.enable = true;
 
   # === END OF NVIDIA CONFIGURATION ===
 }
