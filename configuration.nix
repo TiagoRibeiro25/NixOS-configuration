@@ -117,7 +117,7 @@ in
     isNormalUser = true;
     description = "Tiago";
     shell = pkgs.fish;
-    extraGroups = [ "networkmanager" "wheel" "docker" ];
+    extraGroups = [ "networkmanager" "wheel" "docker" "gamemode" ];
     packages = with pkgs; [ ];
   };
 

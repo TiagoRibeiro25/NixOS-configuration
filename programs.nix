@@ -58,6 +58,7 @@ in
       protontricks
       python3
       samba
+      snapshot
       starship
       stremio-linux-shell
       stress
@@ -114,12 +115,15 @@ in
     wrapperConfig.pipewireSupport = true;
   };
 
+  # Install gamemode
+  programs.gamemode.enable = true;
+
   # Install Steam + SLSsteam
   programs.steam = {
     enable = true;
     package = pkgs.steam.override {
       extraEnv = {
-        MANGOHUD = "1";
+        #MANGOHUD = "1";
         OBS_VKCAPTURE = "1";
         PROTON_USE_NTSYNC="1";
         STEAM_EXTRA_COMPAT_TOOLS_PATHS = "\${HOME}/.steam/root/compatibilitytools.d";
