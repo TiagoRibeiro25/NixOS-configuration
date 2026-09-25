@@ -29,6 +29,7 @@ in
       gearlever
       gnome-calculator
       gnome-disk-utility
+      gnome-system-monitor
       google-chrome
       haruna
       heroic
