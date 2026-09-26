@@ -60,7 +60,6 @@ in
       samba
       snapshot
       starship
-      stremio-linux-shell
       stress
       trash-cli
       unar
