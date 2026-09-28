@@ -60,8 +60,14 @@ in
   networking.networkmanager = {
     enable = true;
 
+    wifi.backend = "iwd";
+
     # Ignore DNS servers supplied by DHCP
     dns = "none";
+  };
+
+  networking.wireless.iwd = {
+    enable = true;
   };
 
   # Cloudflare DNS
