@@ -16,6 +16,7 @@ in
       appimage-run
       arj
       autenticacao-gov-pt-bin
+      baobab
       bat
       btop
       cpio
