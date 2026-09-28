@@ -139,9 +139,9 @@
         ANALOGIO: 0
 
         [UNDERVOLT.AC]
-        CORE: -110
+        CORE: -120
         GPU: -75
-        CACHE: -110
+        CACHE: -120
         UNCORE: 0
         ANALOGIO: 0
       '';
