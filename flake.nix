@@ -10,6 +10,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    rivalcfg-gui.url = "github:TiagoRibeiro25/rivalcfg/rivalcfg-gui";
+
     # Official SLSsteam flake
     sls-steam = {
       url = "github:AceSLS/SLSsteam";
@@ -23,6 +25,7 @@
     self,
     nixpkgs,
     nix-tools-steam,
+    rivalcfg-gui,
     sls-steam,
     spicetify-nix,
     ...
@@ -33,11 +36,13 @@
           system = "x86_64-linux";
 
           specialArgs = {
-            inherit nix-tools-steam sls-steam spicetify-nix;
+            inherit nix-tools-steam rivalcfg-gui sls-steam spicetify-nix;
           };
 
           modules = [
             ./configuration.nix
+
+            rivalcfg-gui.nixosModules.default
           ];
         };
     };
