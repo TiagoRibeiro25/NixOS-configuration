@@ -116,7 +116,20 @@ in
   };
 
   # Install gamemode
-  programs.gamemode.enable = true;
+  programs.gamemode = {
+    enable = true; # Enable gamemode for games
+    enableRenice = true; # Enable renice for gamemode
+
+    settings = {
+      general = {
+        renice = 10;
+      };
+      custom = {
+        start = "${pkgs.libnotify}/bin/notify-send 'GameMode started'";
+        end = "${pkgs.libnotify}/bin/notify-send 'GameMode ended'";
+      };
+    };
+  };
 
   # Install Steam + SLSsteam
   programs.steam = {
