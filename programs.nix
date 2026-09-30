@@ -10,7 +10,6 @@
     anydesk
     appimage-run
     arj
-    autenticacao-gov-pt-bin
     baobab
     bat
     btop
