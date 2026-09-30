@@ -163,7 +163,6 @@
 
     # CPU frequency / power management
     power-profiles-daemon.enable = true;
-    #auto-cpufreq.enable = false;
 
     # Android phone mounting
     gvfs.enable = true;
