@@ -66,6 +66,24 @@
     vulkan-tools
     wget
     zstd
+
+    # ASSella desktop launcher
+    (writeTextFile {
+      name = "assella-desktop";
+      destination = "/share/applications/assella.desktop";
+      text = ''
+        [Desktop Entry]
+        Name=ASSella
+        GenericName=Steam depot manager
+        Comment=ASSella Steam depot manager
+        Exec=env SSL_CERT_FILE=/etc/ssl/certs/ca-bundle.crt NIX_SSL_CERT_FILE=/etc/ssl/certs/ca-bundle.crt LD_LIBRARY_PATH=/run/current-system/sw/share/nix-ld/lib /home/tiago/.local/share/ACCELA/ASSella.AppImage
+        Icon=applications-games
+        Terminal=false
+        Type=Application
+        Categories=Game;Utility;
+        StartupNotify=true
+      '';
+    })
   ];
 
   # Run AppImages
