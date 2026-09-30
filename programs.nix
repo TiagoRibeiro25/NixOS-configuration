@@ -1,83 +1,73 @@
-{ config, pkgs, nix-tools-steam, sls-steam, ... }:
+{ config, pkgs, sls-steam, ... }:
 
-let
-  steam-tools =
-    nix-tools-steam.packages.${pkgs.stdenv.hostPlatform.system};
-in
 {
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # List packages installed in system profile.
-  environment.systemPackages =
-    (with pkgs; [
-      _7zz
-      anydesk
-      appimage-run
-      arj
-      autenticacao-gov-pt-bin
-      baobab
-      bat
-      btop
-      cpio
-      curl
-      easyeffects
-      eza
-      fastfetch
-      firewalld-gui
-      ffmpeg
-      fuse2
-      gearlever
-      gnome-calculator
-      gnome-disk-utility
-      gnome-system-monitor
-      google-chrome
-      haruna
-      heroic
-      kdePackages.gwenview
-      kdePackages.kate
-      kdePackages.kio-extras
-      kdePackages.kio-fuse
-      kdePackages.okular
-      keepassxc
-      localsend
-      lrzip
-      lzop
-      mangohud
-      megasync
-      mission-center
-      mongodb-compass
-      nodejs
-      npm-check-updates
-      onlyoffice-desktopeditors
-      opencode
-      openrgb-with-all-plugins
-      parsec-bin
-      pear-desktop
-      postman
-      protonplus
-      protontricks
-      python3
-      samba
-      snapshot
-      starship
-      stress
-      trash-cli
-      unar
-      unrar
-      unzip
-      vesktop
-      video-trimmer
-      vscode
-      vulkan-tools
-      wget
-      zstd
-    ])
-    ++ [
-      # nix-tools-steam
-      steam-tools.accela
-      # steam-tools.samrewritten
-    ];
+  environment.systemPackages = with pkgs; [
+    _7zz
+    anydesk
+    appimage-run
+    arj
+    autenticacao-gov-pt-bin
+    baobab
+    bat
+    btop
+    cpio
+    curl
+    easyeffects
+    eza
+    fastfetch
+    firewalld-gui
+    ffmpeg
+    fuse2
+    gearlever
+    gnome-calculator
+    gnome-disk-utility
+    gnome-system-monitor
+    google-chrome
+    haruna
+    heroic
+    kdePackages.gwenview
+    kdePackages.kate
+    kdePackages.kio-extras
+    kdePackages.kio-fuse
+    kdePackages.okular
+    keepassxc
+    localsend
+    lrzip
+    lzop
+    mangohud
+    megasync
+    mission-center
+    mongodb-compass
+    nodejs
+    npm-check-updates
+    onlyoffice-desktopeditors
+    opencode
+    openrgb-with-all-plugins
+    parsec-bin
+    pear-desktop
+    postman
+    protonplus
+    protontricks
+    python3
+    samba
+    snapshot
+    starship
+    stress
+    trash-cli
+    unar
+    unrar
+    unzip
+    vesktop
+    video-trimmer
+    vscode
+    vulkan-tools
+    wget
+    zstd
+  ];
 
   # Run AppImages
   programs.appimage = {

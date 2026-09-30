@@ -4,12 +4,6 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    # Used for accela and samrewritten
-    nix-tools-steam = {
-      url = "github:HANDZCZ/nix-tools-steam";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
     rivalcfg-gui.url = "github:TiagoRibeiro25/rivalcfg/rivalcfg-gui";
 
     # Official SLSsteam flake
@@ -24,7 +18,6 @@
   outputs = {
     self,
     nixpkgs,
-    nix-tools-steam,
     rivalcfg-gui,
     sls-steam,
     spicetify-nix,
@@ -36,7 +29,7 @@
           system = "x86_64-linux";
 
           specialArgs = {
-            inherit nix-tools-steam rivalcfg-gui sls-steam spicetify-nix;
+            inherit rivalcfg-gui sls-steam spicetify-nix;
           };
 
           modules = [
