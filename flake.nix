@@ -6,7 +6,6 @@
 
     rivalcfg-gui.url = "github:TiagoRibeiro25/rivalcfg/rivalcfg-gui";
 
-    # Official SLSsteam flake
     sls-steam = {
       url = "github:AceSLS/SLSsteam";
       inputs.nixpkgs.follows = "nixpkgs";

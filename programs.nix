@@ -53,6 +53,7 @@
     protontricks
     python3
     samba
+    samrewritten
     snapshot
     starship
     stress
