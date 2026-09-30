@@ -108,6 +108,12 @@ in
   # Configure console keymap
   console.keyMap = "us-acentos";
 
+  # Microsoft Fonts
+  fonts.packages = with pkgs; [
+    corefonts  # Includes Arial, Times New Roman, Comic Sans, etc.
+    vista-fonts # Includes Calibri, Consolas, etc.
+  ];
+
   # Define a user account.
   users.users."tiago" = {
     isNormalUser = true;
