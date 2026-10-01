@@ -18,6 +18,7 @@
     easyeffects
     eza
     fastfetch
+    fetch
     firewalld-gui
     ffmpeg
     fuse2
