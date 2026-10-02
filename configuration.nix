@@ -135,6 +135,9 @@ in
     __GL_SHADER_DISK_CACHE_SIZE = "17179869184";
   };
 
+  #environment.sessionVariables.KWIN_DRM_DEVICES = "/dev/dri/card1:/dev/dri/card2";
+  environment.sessionVariables.KWIN_DRM_DEVICES = "/dev/dri/nvidia:/dev/dri/intel";
+
   # Bluetooth
   hardware.bluetooth.enable = true;
   hardware.bluetooth.powerOnBoot = true;

@@ -224,11 +224,16 @@
     }))
   ];
 
-  # Disable DualSense touchpad from being treated as a mouse
   services.udev.extraRules = ''
+    # Stable DRM symlinks for KWin
+    KERNEL=="card*", KERNELS=="0000:01:00.0", SYMLINK+="dri/nvidia"
+    KERNEL=="card*", KERNELS=="0000:00:02.0", SYMLINK+="dri/intel"
+
+    # Disable DualSense touchpad from being treated as a mouse
     # USB
     ATTRS{name}=="Sony Interactive Entertainment Wireless Controller Touchpad", ENV{LIBINPUT_IGNORE_DEVICE}="1"
     ATTRS{name}=="Sony Interactive Entertainment DualSense Wireless Controller Touchpad", ENV{LIBINPUT_IGNORE_DEVICE}="1"
+
     # Bluetooth
     ATTRS{name}=="Wireless Controller Touchpad", ENV{LIBINPUT_IGNORE_DEVICE}="1"
     ATTRS{name}=="DualSense Wireless Controller Touchpad", ENV{LIBINPUT_IGNORE_DEVICE}="1"
