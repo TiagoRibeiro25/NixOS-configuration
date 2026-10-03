@@ -44,6 +44,7 @@
     mongodb-compass
     nodejs
     npm-check-updates
+    nvtopPackages.full
     onlyoffice-desktopeditors
     opencode
     openrgb-with-all-plugins
