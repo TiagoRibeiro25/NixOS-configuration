@@ -35,6 +35,7 @@
     kdePackages.kio-fuse
     kdePackages.okular
     keepassxc
+    klassy
     localsend
     lrzip
     lzop
